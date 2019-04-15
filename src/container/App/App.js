@@ -1,14 +1,17 @@
 import React from 'react';
 import './App.css';
-// ! Redux
+// Styles
+import withStyles from 'react-jss'
+import styles from './appStyles'
 
 
-function App({ children }) {
+function App({ children, classes }) {
   return (
-    <div className="App">
+    <div className={classes.layoutGrid}>
       {children}
     </div>
   );
 }
 
-export default App
+const appWithStyles = withStyles(styles)(App)
+export default appWithStyles

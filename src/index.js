@@ -6,12 +6,17 @@ import * as serviceWorker from './serviceWorker';
 // ! Redux
 import { Provider } from 'react-redux'
 import configureStore from './shared/redux/configure_store.store'
+// ! Styles
+import theme from './shared/themes/black'
+import { ThemeProvider } from 'react-jss'
 
 const store = configureStore({})
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppRouter />
+    <ThemeProvider theme={theme}>
+      <AppRouter />
+    </ThemeProvider>
   </Provider>
   , document.getElementById('root'));
 
