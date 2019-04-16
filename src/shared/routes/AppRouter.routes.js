@@ -24,7 +24,7 @@ function AppRouter({ classes }) {
         <Sider>Sider</Sider>
         <Layout>
           <Header>Header</Header>
-          <Content>
+          <Content className={classes.contentContainer}>
             {login ? <PrivateRoutes /> : <PublicRoutes />}
           </Content>
           <Footer>Footer</Footer>
