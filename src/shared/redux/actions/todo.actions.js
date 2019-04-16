@@ -1,4 +1,4 @@
-import { createAction, createActions } from 'redux-actions'
+import { createActions } from 'redux-actions'
 // Types
 import { ADD_TASK } from '../types/todo.types'
 import { SHOW_TASKS } from '../types/todo.types'

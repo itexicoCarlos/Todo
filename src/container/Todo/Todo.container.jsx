@@ -4,12 +4,15 @@ import Form from '../../components/Todo/Form.component'
 import List from '../../components/Todo/List.component'
 // Helpers
 import helper from '../../helpers/todo.halper'
+// Styles
+import styles from './todoStyles'
+import withStyles from 'react-jss'
 // * HOC
 import Connect from '../../hoc/Connect.hoc'
 // ! Redux actions
 import { addTask } from '../../shared/redux/actions/todo.actions'
 
-function App({ state, dispatch }) {
+function Todo({ state, dispatch, classes }) {
 
   const sendData = async (task) => {
     dispatch(addTask(await helper.addTaskHelper(task)))
@@ -17,11 +20,13 @@ function App({ state, dispatch }) {
   }
 
   return (
-    <div>
+    <div className={classes.todoLayout}>
       <Form sendData={sendData} />
       <List tasks={state.todo_store.todos} />
     </div>
   )
 }
 
-export default Connect(App)
+const todoWithStyles = withStyles(styles)(Todo)
+
+export default Connect(todoWithStyles)

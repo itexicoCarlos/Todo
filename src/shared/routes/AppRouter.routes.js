@@ -4,15 +4,36 @@ import PrivateRoutes from './private/PrivateRoutes.routes'
 import PublicRoutes from './public/PublicRoutes.routes'
 // Components Root
 import App from '../../container/App/App'
+// * Styles jss
+import styles from './appRouterStyles'
+import withStyles from 'react-jss'
+// Styles antd
+import { Layout } from 'antd'
 
-function AppRouter() {
+
+const {
+  Header, Footer, Sider, Content
+} = Layout
+
+function AppRouter({ classes }) {
 
   const login = true
   return (
     <App>
-      {login ? <PrivateRoutes /> : <PublicRoutes />}
+      <Layout className={classes.routerConteiner}>
+        <Sider>Sider</Sider>
+        <Layout>
+          <Header>Header</Header>
+          <Content>
+            {login ? <PrivateRoutes /> : <PublicRoutes />}
+          </Content>
+          <Footer>Footer</Footer>
+        </Layout>
+      </Layout>
     </App>
   )
 }
 
-export default AppRouter
+
+const appRouterWithStyles = withStyles(styles)(AppRouter)
+export default appRouterWithStyles

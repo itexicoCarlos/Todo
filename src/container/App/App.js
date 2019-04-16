@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 // Styles
 import withStyles from 'react-jss'
 import styles from './appStyles'
@@ -7,7 +6,7 @@ import styles from './appStyles'
 
 function App({ children, classes }) {
   return (
-    <div className={classes.layoutGrid}>
+    <div className={classes.rootLayout}>
       {children}
     </div>
   );

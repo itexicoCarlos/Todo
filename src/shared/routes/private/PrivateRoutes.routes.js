@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 // * Routes
 import { Router } from '@reach/router'
 // Containers
-import Todo from '../../../container/Todo'
+import Todo from '../../../container/Todo/Todo.container'
 // ! Redux
 import Connect from '../../../hoc/Connect.hoc'
 // Actions and helpers
@@ -22,7 +22,7 @@ function PrivateRoutes({ state, dispatch }) {
   }
 
   return (
-    <Router>
+    <Router primary={false} >
       <Todo path='/' />
     </Router>
   )
